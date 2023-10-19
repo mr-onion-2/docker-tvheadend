@@ -64,12 +64,12 @@ RUN \
 RUN \
   echo "**** compile tvheadend ****" && \
   if [ -z ${TVHEADEND_COMMIT+x} ]; then \
-    TVHEADEND_COMMIT=$(curl -sX GET https://api.github.com/repos/tvheadend/tvheadend/commits/master \
+    TVHEADEND_COMMIT=$(curl -sX GET https://api.github.com/repos/mr-onion-2/tvheadend/commits/master \
     | jq -r '. | .sha'); \
   fi && \
   mkdir -p \
     /tmp/tvheadend && \
-  git clone https://github.com/tvheadend/tvheadend.git /tmp/tvheadend && \
+  git clone https://github.com/mr-onion-2/tvheadend.git /tmp/tvheadend && \
   cd /tmp/tvheadend && \
   git checkout ${TVHEADEND_COMMIT} && \
   ./configure \
