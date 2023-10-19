@@ -5,7 +5,7 @@
 FROM ghcr.io/linuxserver/picons-builder as piconsstage
 
 
-FROM ghcr.io/linuxserver/baseimage-alpine:3.18 as buildstage
+FROM ghcr.io/linuxserver/baseimage-alpine:arm64v8-3.18 as buildstage
 ############## build stage ##############
 
 # package versions
@@ -148,8 +148,9 @@ RUN \
     /picons.tar.bz2 -C \
     /picons
 
+
 ############## runtime stage ##############
-FROM ghcr.io/linuxserver/baseimage-alpine:3.18
+FROM ghcr.io/linuxserver/baseimage-alpine:arm64v8-3.18
 
 # set version label
 ARG BUILD_DATE
@@ -177,8 +178,6 @@ RUN \
     libdvbcsa \
     libhdhomerun-libs \
     libva \
-    libva-intel-driver \
-    intel-media-driver \
     libvpx \
     libxml2 \
     libxslt \
